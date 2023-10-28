@@ -39,7 +39,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                             </div>
                                         @endif
-                                        @if($user->image_url != null)
+                                        @if($user->image != null)
                                         <div class="text-center">
                                             <img style="border-radius: 100%; width:30%; height:50%;" src="{{asset('storage/'.$user->image->url)}}" alt="">
                                         </div>
