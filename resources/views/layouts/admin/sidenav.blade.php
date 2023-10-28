@@ -79,16 +79,27 @@
                              All Artworks
                          </a>
                      </li>
-                     {{-- <li>
-                         <a href="">
-                             <span class="d-inline-block">
-                                 <i class="icon icon-add"></i>
-                             </span>
-                             Add Artwork
-                         </a>
-                     </li> --}}
                  </ul>
              </li>
+             <li class="treeview">
+                <a href="#">
+                    <span class="d-inline-block">
+                        <i class="icon icon-change_history s-18"></i>
+                    </span>
+                    Order Management
+                    <i class="icon icon-angle-left s-18 pull-right"></i>
+                </a>
+                <ul class="treeview-menu" style="display: none;">
+                    <li>
+                        <a href="{{ route('admin.order.all') }}">
+                            <span class="d-inline-block">
+                                <i class="icon icon-list4"></i>
+                            </span>
+                            All Orders
+                        </a>
+                    </li>
+                </ul>
+            </li>
              <li class="treeview">
                  <a href="#">
                      <span class="d-inline-block">

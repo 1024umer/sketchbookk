@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Admin\{HomeController,AdminAuthController,CategoryController,UserController,BlogController,
                                 ArtistController,ContactController,ArtworkController};
-
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -40,6 +40,8 @@ Route::middleware(['auth'])->prefix('dashboard')->name('admin.')->group(function
     Route::get('/artwork/approve/{id}',[ArtworkController::class,'approve'])->name('artwork.approve');
     Route::get('/artwork/deny/{id}',[ArtworkController::class,'deny'])->name('artwork.deny');
 
+    Route::get('/orders/list',[OrderController::class,'getAll'])->name('order.all');
+    Route::get('/orders/view/{order_id}',[OrderController::class,'adminView'])->name('order.view');
     // Route::get('/artist',[ArtistController::class,'index'])->name('artist.request');
     // Route::get('/artist/approve/{id}',[ArtistController::class,'approve'])->name('artist.approve');
     // Route::get('/artist/deny/{id}',[ArtistController::class,'deny'])->name('artist.deny');

@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Auth\{LoginController,RegisterController,ForgetPasswordController};
 use App\Http\Controllers\{HomeController,BlogController,DashboardController,ContactController,ProfileController,
-    ProductController,ShopController,WishlistController,SearchController,CartController,CheckoutController};
+    ProductController,ShopController,WishlistController,SearchController,CartController,CheckoutController,OrderController};
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -76,5 +76,9 @@ Route::middleware(['auth'])->prefix('dashboard')->name('user.')->group(function 
     Route::post("/wishlist/add",[WishlistController::class,'add'])->name('wishlist.add');
     Route::post("/wishlist/remove",[WishlistController::class,'remove'])->name('wishlist.remove');
     Route::get("/wishlist/remove/{id}",[WishlistController::class,'delete'])->name('wishlist.delete');
+
+    Route::get('/order/list',[OrderController::class,'index'])->name('order.list');
+    Route::get('/orders/view/{order_id}',[OrderController::class,'view'])->name('order.view');
+    Route::post('/orders/update/{order_id}',[OrderController::class,'update'])->name('order.update');
 });
 

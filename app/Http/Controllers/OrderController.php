@@ -7,79 +7,45 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function index(){
+        $orders = Order::where('user_id',auth()->user()->id)->with('user','product')->get();
+        // dd($orders);
+        return view('dashboard.artist-order-list')->with(compact('orders'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function getAll(){
+        $orders = Order::with('user','product')->get();
+        // dd($orders);
+        return view('admin.order.view')->with(compact('orders'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function adminView($id){
+        $order = Order::where('order_id',$id)->with('user','product.imageOne')->first();
+        return view('admin.order.detail')->with(compact('order'));
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        //
+    public function view($id){
+        $order = Order::where('order_id',$id)->with('user','product.imageOne')->first();
+        return view('dashboard.artist-order-view')->with(compact('order'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Order $order)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
+    public function update(Request $request, $id){
+        $order = Order::where('order_id',$id)->first();
+        if($request->order_status == 1){
+            $order->update(['order_status'=>'pending']);
+            $order->save();
+        }
+        else if($request->order_status == 2){
+            $order->update(['order_status'=>'In Progress']);
+            $order->save();
+        }
+        else if($request->order_status == 3){
+            $order->update(['order_status'=>'In route']);
+            $order->save();
+        }
+        else if($request->order_status == 4){
+            $order->update(['order_status'=>'Delivered']);
+            $order->save();
+        }else{
+            $order->update(['order_status'=>'pending']);
+            $order->save();
+        }
+        return redirect()->back()->with('success','Order Updated');
     }
 }
