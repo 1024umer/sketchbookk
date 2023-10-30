@@ -34,9 +34,7 @@ class CheckoutController extends Controller
         Session::put('city2', $request->city2);
         Session::put('postal_code2', $request->postal_code2);
 
-        $stripe = new \Stripe\StripeClient([
-            'api_key' => config('services.stripe.secret'),
-        ]);
+        $stripe = new \Stripe\StripeClient(env('STRIPE_SECRET_KEY'));
         $productIds = session('cart', []);
         $products = Product::whereIn('id', $productIds)->with('imageOne', 'user')->get();
         $total = 0;
