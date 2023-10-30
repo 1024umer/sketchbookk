@@ -12,12 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminAuthController extends Controller
 {
     public function login(){
-        if(Auth::user() && Auth::user()->role_id != 1){
-            return view('admin.auth.login');
-        }
-        else{
-            return redirect()->route('admin.home');
-        }
+         return view('admin.auth.login');
     }
     public function authenticate(LoginRequest $request){
         $user = User::where('email', $request->email)->first();

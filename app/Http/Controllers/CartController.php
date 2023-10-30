@@ -5,16 +5,24 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
+
 class CartController extends Controller
 {
     public function index(){
         $productIds = session('cart', []);
         $products = Product::whereIn('id', $productIds)->with('imageOne','user')->get();
-
-        return view('dashboard.cart')->with('products', $products);
+        $total = 0;
+        foreach ($products as $product) {
+            $total += $product->price;
+        }
+        return view('dashboard.cart')->with('products', $products)->with(compact('total'));
     }
     public function add(Request $request) {
         try {
+            if(Auth::user() && Auth::user()->role_id == 1 || Auth::user()->role_id == 2){
+                return ['error'=> 'You are not allowed to buy anything', 401];
+            }else{
             $product = Product::find($request->product_id);
             $cart = session('cart', []);
             
@@ -32,6 +40,7 @@ class CartController extends Controller
                 $cart[] = $request->product_id;
                 session(['cart' => $cart]);
                 return ['success' => 'Your Product has been added to the cart.'];
+            }
             }
         } catch (\Exception $e) {
             return ['error'=> 'There is an error while adding the product to the cart.', 401];

@@ -1,5 +1,6 @@
 @extends('layout.app')
 @section('content')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" />
 <main class="main__content_wrapper">
 
     <!-- Start breadcrumb section -->
@@ -66,7 +67,7 @@
                                                     <div class="contact__form--list mb-20">
                                                         <label class="contact__form--label" for="input5">Select the categories
                                                             <span class="contact__form--label__star">*</span></label>
-                                                            <select name="category_id[]" id="cars" multiple>
+                                                            <select name="category_id[]" class="form-select" id="cars" multiple>
                                                                 @foreach ($categories as $category)
                                                                 <option value="{{$category->id}}"
                                                                     {{ isset($product) && in_array($category->id, json_decode($product->category_id)) ? 'selected' : '' }}>
@@ -83,7 +84,7 @@
                                                     <div class="contact__form--list mb-20">
                                                         <label class="contact__form--label" for="input5">Select the Artwork's Images
                                                             <span class="contact__form--label__star">*</span></label>
-                                                        <input class="contact__form--input" type="file" name="artwork[]" multiple >
+                                                        <input class="contact__form--input" id="dropify" type="file" name="artwork[]" multiple >
                                                         @error('artwork')
                                                             <label class="for-error">{{ $message }}</label>
                                                         @enderror
@@ -154,14 +155,17 @@
 @endsection
 @push('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor5/40.0.0/ckeditor.min.js" integrity="sha512-Zyl/SvrviD3rEMVNCPN+m5zV0PofJYlGHnLDzol2kM224QpmWj9p5z7hQYppmnLFhZwqif5Fugjjouuk5l1lgA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
 
+<script>
+$('#dropify').dropify();
 $(document).ready(function() {
     ClassicEditor
         .create( document.querySelector( '#input5' ) )
         .catch( error => {
             console.error( error );
         } );
+        
 });
 </script>
 @endpush

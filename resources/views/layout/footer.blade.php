@@ -75,7 +75,7 @@
                             </svg>
                         </h2>
                         <ul class="footer__widget--menu footer__widget--inner">
-                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="{{('user.account')}}">My Account</a></li>
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="{{route('user.account')}}">My Account</a></li>
                             <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="cart.php">Shopping Cart</a></li>
                             <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="{{route('login')}}">Login</a></li>
                             <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="checkout.php">Checkout</a></li>

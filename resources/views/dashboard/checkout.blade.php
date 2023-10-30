@@ -248,12 +248,12 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="checkout__discount--code">
+                        {{-- <div class="checkout__discount--code">
                                 <label>
                                     <input class="checkout__discount--code__input--field border-radius-5" placeholder="Gift card or discount code" type="text">
                                 </label>
                                 <button class="checkout__discount--code__btn primary__btn border-radius-5">Apply</button>
-                        </div>
+                        </div> --}}
                         <div class="checkout__total">
                             <table class="checkout__total--table">
                                 <tbody class="checkout__total--body">
@@ -276,11 +276,11 @@
                         </div>
                         <div class="payment__history mb-30">
                             <h3 class="payment__history--title mb-20">Payment</h3>
-                            <ul class="payment__history--inner d-flex">
+                            {{-- <ul class="payment__history--inner d-flex">
                                 <li class="payment__history--list"><button class="payment__history--link primary__btn" >Credit Card</button></li>
                                 <li class="payment__history--list"><button class="payment__history--link primary__btn" >Bank Transfer</button></li>
                                 <li class="payment__history--list"><button class="payment__history--link primary__btn" >Paypal</button></li>
-                            </ul>
+                            </ul> --}}
                         </div>
                         <button class="checkout__now--btn primary__btn" type="submit">Checkout Now</button>
                     </aside>

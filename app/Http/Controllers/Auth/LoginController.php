@@ -27,7 +27,7 @@ class LoginController extends Controller
                     else{
                         $request->session()->regenerate();
                         $request->session()->flash('success', 'Logged In successfully!');
-                        return redirect()->route('dashboard')->with('title',auth()->user()->name);
+                        return redirect()->route('user.profile')->with('title',auth()->user()->name);
                     }
                 }else {
 

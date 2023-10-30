@@ -44,7 +44,9 @@
                                     <span class="visually-hidden">Search</span>
                                 </a>
                             </li>
-                            @if(Auth::user() && Auth::user()->role_id == [2,3])
+                            @if(Auth::user() && Auth::user()->role_id == 1)
+                            
+                            @else
                             <li class="header__account--items">
                                 <a class="header__account--btn" href="{{route('user.account')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26.51" height="23.443"
@@ -335,11 +337,11 @@
                     <span class="total_price"><b>$300.00</b></span>
                 </div>
             </div>
-            <div class="minicart__conditions text-center">
+            {{-- <div class="minicart__conditions text-center">
                 <input class="minicart__conditions--input" id="accept" type="checkbox">
                 <label class="minicart__conditions--label" for="accept">I agree with the <a
                         class="minicart__conditions--link" href="privacy-policy.php">Privacy And Policy</a></label>
-            </div>
+            </div> --}}
             <div class="minicart__button d-flex justify-content-center">
                 <a class="primary__btn minicart__button--link" href="{{route('cart')}}">View cart</a>
                 <a class="primary__btn minicart__button--link" href="{{route('checkout')}}">Checkout</a>
@@ -427,7 +429,7 @@
                                         </label>
                                         <button type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button>
                                     </div>
-                                    <button class="minicart__product--remove" aria-label="minicart remove btn">Remove</button>
+                                    <a href="" class="minicart__product--remove" aria-label="minicart remove btn">Remove</a>
                                 </div>
                             </div>
                         </div>
