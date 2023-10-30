@@ -24,7 +24,7 @@ class BillingRequest extends FormRequest
     public function rules()
     {
         return [
-            'email'=>'required|email|max:255|unique:App\Models\Order,email',
+            'email'=>'required|email|max:255',
             'address'=>'required|string',
             'last_name'=>'required|string|max:255',
             'city'=>'required|string|max:255',
