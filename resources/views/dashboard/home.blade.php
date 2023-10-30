@@ -932,9 +932,10 @@
                     <h2 class="section__heading--maintitle">Latest Post From Blog</h2>
                 </div>
                 <div class="blog__section--inner blog__swiper--column3 swiper">
+                    
                     <div class="swiper-wrapper">
-                        @foreach ($blogs as $blog)                            
-                            <div class="swiper-slide">
+                        @foreach($blogs as $blog)                            
+                        <div class="swiper-slide">
                                 <div class="blog__items">
                                     <div class="blog__thumbnail">
                                         <a class="blog__thumbnail--link display-block" href="javascript:void(0)"><img
@@ -969,8 +970,8 @@
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
-                    </div>
+                            @endforeach
+                        </div>
                     <div class="swiper__nav--btn swiper-button-next"></div>
                     <div class="swiper__nav--btn swiper-button-prev"></div>
                 </div>

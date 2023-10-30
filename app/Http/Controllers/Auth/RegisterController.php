@@ -20,7 +20,9 @@ class RegisterController extends Controller
             'password' => Hash::make($request->password),
         ]);
         if ($user) {
-            return redirect()->back()->with('success','Congrats Your Account has been created!');
+            $request->session()->regenerate();
+            $request->session()->flash('success', 'Logged In successfully!');
+            return redirect()->route('user.account')->with('title',auth()->user()->name);
         } else {
             return redirect()->back()->with('error','Please fill out the form correctly!');
         }

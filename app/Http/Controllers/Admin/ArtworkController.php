@@ -21,7 +21,11 @@ class ArtworkController extends Controller
     public function deny($id){
         $artist = Product::where('id',$id)->first();
         $artist->update(['is_approved'=>0]);
-
         return redirect()->back()->with('success','The Artwork has been denied successfully');
+    }
+    public function view($id){
+        $artwork = Product::where('id',$id)->with('user','image')->first();
+        // dd($artwork);
+        return view('admin.artwork.detail')->with(compact('artwork'));
     }
 }

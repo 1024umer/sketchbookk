@@ -7,13 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
-    public function login(){
-        if(!Auth::user()){
+    public function login(Request $request){
             return view("dashboard.login")->with('title','Welcome');
-        }
-        else{
-            return redirect()->route("dashboard")->with('title','Welcome'.auth()->user()->name);
-        }
     }
     public function authenticate(Request $request)
     {

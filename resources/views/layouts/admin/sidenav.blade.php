@@ -100,7 +100,7 @@
                     </li>
                 </ul>
             </li>
-             <li class="treeview">
+             {{-- <li class="treeview">
                  <a href="#">
                      <span class="d-inline-block">
                          <i class="icon icon-change_history s-18"></i>
@@ -126,8 +126,8 @@
                          </a>
                      </li>
                  </ul>
-             </li>
-             <li class="treeview">
+             </li> --}}
+             {{-- <li class="treeview">
                  <a href="#">
                      <span class="d-inline-block">
                          <i class="icon icon-change_history s-18"></i>
@@ -153,7 +153,7 @@
                          </a>
                      </li>
                  </ul>
-             </li>
+             </li> --}}
              <li class="treeview">
                 <a href="#">
                     <span class="d-inline-block">

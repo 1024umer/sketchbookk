@@ -164,7 +164,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="product__showing--count">Showing 1–9 of 21 results</p>
+                        {{-- <p class="product__showing--count">Showing 1–9 of 21 results</p> --}}
                     </div>
                     <div class="shop__product--wrapper">
                         <div class="tab_content">
@@ -179,7 +179,7 @@
                                                             <img class="product__items--img product__primary--img" src="{{asset('storage/'. $product->imageOne->url)}}" alt="product-img">
                                                         </a>
                                                         <ul class="product__items--action d-flex justify-content-center">
-                                                            <li class="product__items--action__list">
+                                                            {{-- <li class="product__items--action__list">
                                                                 <a class="product__items--action__btn" data-open="modal1" href="javascript:void(0)">
                                                                     <svg class="product__items--action__btn--svg" xmlns="http://www.w3.org/2000/svg" width="20.51" height="19.443" viewBox="0 0 512 512">
                                                                         <path d="M255.66 112c-77.94 0-157.89 45.11-220.83 135.33a16 16 0 00-.27 17.77C82.92 340.8 161.8 400 255.66 400c92.84 0 173.34-59.38 221.79-135.25a16.14 16.14 0 000-17.47C428.89 172.28 347.8 112 255.66 112z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
@@ -195,7 +195,7 @@
                                                                     </svg>
                                                                     <span class="visually-hidden">Wishlist</span>
                                                                 </a>
-                                                            </li>
+                                                            </li> --}}
                                                         </ul>
                                                     </div>
                                                     <div class="product__items--content text-center">

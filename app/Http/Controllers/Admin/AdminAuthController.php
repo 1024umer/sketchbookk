@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminAuthController extends Controller
 {
     public function login(){
-        if(!Auth::check()){
+        if(Auth::user() && Auth::user()->role_id != 1){
             return view('admin.auth.login');
         }
         else{

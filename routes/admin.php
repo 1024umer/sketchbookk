@@ -39,6 +39,7 @@ Route::middleware(['auth'])->prefix('dashboard')->name('admin.')->group(function
     Route::get('/artwork',[ArtworkController::class,'index'])->name('artwork');
     Route::get('/artwork/approve/{id}',[ArtworkController::class,'approve'])->name('artwork.approve');
     Route::get('/artwork/deny/{id}',[ArtworkController::class,'deny'])->name('artwork.deny');
+    Route::get('/artwork/view/{id}',[ArtworkController::class,'view'])->name('artwork.view');
 
     Route::get('/orders/list',[OrderController::class,'getAll'])->name('order.all');
     Route::get('/orders/view/{order_id}',[OrderController::class,'adminView'])->name('order.view');

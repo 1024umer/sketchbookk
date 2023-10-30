@@ -78,7 +78,7 @@ Route::middleware(['auth'])->prefix('dashboard')->name('user.')->group(function 
     Route::get("/wishlist/remove/{id}",[WishlistController::class,'delete'])->name('wishlist.delete');
 
     Route::get('/order/list',[OrderController::class,'index'])->name('order.list');
-    Route::get('/orders/view/{order_id}',[OrderController::class,'view'])->name('order.view');
+    Route::get('/order/view/{order_id}',[OrderController::class,'view'])->name('order.view');
     Route::post('/orders/update/{order_id}',[OrderController::class,'update'])->name('order.update');
 });
 

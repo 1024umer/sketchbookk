@@ -8,11 +8,7 @@
                 <div class="col-md-12">
                     <div class="box-header with-border">
                         <div class="d-flex justify-content-start">
-                            <a href=""
-                                class="btn-success btn-sm btn mb-2 cursor-pointer">
-                                <i class=" icon-add"></i>
-                                Add New
-                            </a>
+                            
                         </div>
                     </div>
                     <form method="post" >
@@ -41,13 +37,8 @@
                                             <span class="badge p-2 badge-{{$artwork->is_approved == 0?'danger':'success'}}">{{$artwork->is_approved == 0?'Not Approved':'Approved'}}</span>
                                         </td>
                                         <td>
-                                            @if ($artwork->is_approved == 0)
                                             <a class="btn-outline-primary cursor-pointer"
-                                            href="{{route('admin.artwork.approve',[$artwork->id])}}">Approve &rarr;</a>
-                                            @else
-                                                <a class="btn-outline-danger cursor-pointer"
-                                            href="{{route('admin.artwork.deny',[$artwork->id])}}">Deny &rarr;</a>
-                                            @endif
+                                            href="{{route('admin.artwork.view',[$artwork->id])}}">View</a>
                                         </td>
                                     </tr>
                                 @endforeach

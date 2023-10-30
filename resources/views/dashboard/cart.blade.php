@@ -90,7 +90,7 @@
                                     </tbody>
                                 </table>
                                 <div class="continue__shopping d-flex justify-content-between">
-                                    <a class="continue__shopping--link" href="shop.php">Continue shopping</a>
+                                    <a class="continue__shopping--link" href="{{route('shop')}}">Continue shopping</a>
                                     <a href="{{route('cart.clear')}}" class="continue__shopping--clear" type="submit">Clear Cart</a>
                                 </div>
                             </div>
