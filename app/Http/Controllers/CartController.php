@@ -20,8 +20,10 @@ class CartController extends Controller
     }
     public function add(Request $request) {
         try {
-            if(Auth::user() && Auth::user()->role_id == 1 || Auth::user()->role_id == 2){
-                return ['error'=> 'You are not allowed to buy anything', 401];
+            if(Auth::check()){
+                if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2){
+                    return ['error'=> 'You are not allowed to buy anything', 401];
+                }
             }else{
             $product = Product::find($request->product_id);
             $cart = session('cart', []);
