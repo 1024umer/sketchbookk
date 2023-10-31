@@ -4,13 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
     public function index(){
-        $orders = Order::where('user_id',auth()->user()->id)->with('user','product')->get();
-        // dd($orders);
-        return view('dashboard.artist-order-list')->with(compact('orders'));
+        if(Auth::user()->role_id == 2){
+            $orders = Order::where('user_id',auth()->user()->id)->with('user','product')->get();
+            // dd($orders);
+            return view('dashboard.artist-order-list')->with(compact('orders'));
+        }
+        else if(Auth::user()->role_id == 3){
+            $orders = Order::where('email',auth()->user()->email)->with('user','product')->get();
+            // dd($orders);
+            return view('dashboard.user-order-list')->with(compact('orders'));
+        }
     }
     public function getAll(){
         $orders = Order::with('user','product')->get();

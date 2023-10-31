@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="customer__information">
                                     <div class="checkout__email--phone mb-12">
-                                        <input value="{{auth()->user()?auth()->user()->email:''}}" name="email" class="checkout__input--field border-radius-5" placeholder="Email or mobile phone mumber" type="email">
+                                        <input value="{{auth()->user()?auth()->user()->email:''}}" {{auth()->user()?'readonly':''}} name="email" class="checkout__input--field border-radius-5" placeholder="Email or mobile phone mumber" type="email">
                                         @error('email')
                                             <label class="for-error">{{ $message }}</label>
                                         @enderror
@@ -232,16 +232,16 @@
                                         <td class="cart__table--body__list">
                                             <div class="product__image two  d-flex align-items-center">
                                                 <div class="product__thumbnail border-radius-5">
-                                                    <a class="display-block" href="product-details.php"><img class="display-block border-radius-5" src="{{asset('storage/'.$product->imageOne->url)}}" alt="cart-product"></a>
-                                                    <span class="product__thumbnail--quantity">1</span>
+                                                    <a class="display-block" href="product-details.php"><img class="display-block border-radius-5" src="{{asset('storage/'.$product['image'])}}" alt="cart-product"></a>
+                                                    <span class="product__thumbnail--quantity">{{$product['qty']}}</span>
                                                 </div>
                                                 <div class="product__description">
-                                                    <h4 class="product__description--name"><a href="product-details.php">{{$product->title}}</a></h4>
+                                                    <h4 class="product__description--name"><a href="product-details.php">{{$product['title']}}</a></h4>
                                                 </div>
                                             </div>
                                         </td>
                                         <td class="cart__table--body__list">
-                                            <span class="cart__price">${{$product->price}}</span>
+                                            <span class="cart__price">${{$product['price']}}</span>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -263,13 +263,13 @@
                                     </tr>
                                     <tr class="checkout__total--items">
                                         <td class="checkout__total--title text-left">Shipping</td>
-                                        <td class="checkout__total--calculated__text text-right">$50.00</td>
+                                        <td class="checkout__total--calculated__text text-right">$0.00</td>
                                     </tr>
                                 </tbody>
                                 <tfoot class="checkout__total--footer">
                                     <tr class="checkout__total--footer__items">
                                         <td class="checkout__total--footer__title checkout__total--footer__list text-left">Total </td>
-                                        <td class="checkout__total--footer__amount checkout__total--footer__list text-right">${{$total + 50}}</td>
+                                        <td class="checkout__total--footer__amount checkout__total--footer__list text-right">${{$total}}</td>
                                     </tr>
                                 </tfoot>
                             </table>

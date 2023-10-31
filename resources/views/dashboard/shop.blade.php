@@ -68,28 +68,23 @@
                         <div class="single__widget widget__bg">
                             <h2 class="widget__title position__relative h3">Art Category</h2>
                             <ul class="widget__form--check">
-                                <li class="widget__form--check__list">
-                                    <label class="widget__form--check__label" for="check1">Digital Art</label>
-                                    <input class="widget__form--check__input" id="check1" type="checkbox">
-                                    <span class="widget__form--checkmark"></span>
-                                </li>
-                                <li class="widget__form--check__list">
-                                    <label class="widget__form--check__label" for="check2">Fine Art</label>
-                                    <input class="widget__form--check__input" id="check2" type="checkbox">
-                                    <span class="widget__form--checkmark"></span>
-                                </li>
-                                <li class="widget__form--check__list">
-                                    <label class="widget__form--check__label" for="check3">Visual Art</label>
-                                    <input class="widget__form--check__input" id="check3" type="checkbox">
-                                    <span class="widget__form--checkmark"></span>
-                                </li>
+                                @foreach ($categories as $category)                                    
+                                <a href="{{route('products.search.category',[$category->id])}}">
+                                    <li class="widget__form--check__list">
+                                            <label class="widget__form--check__label" for="check1">{{$category->name}}</label>
+                                            <input class="widget__form--check__input" type="checkbox">
+                                            <span class="widget__form--checkmark"></span>
+                                        </li>
+                                    </a>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="single__widget widget__bg">
                             <h2 class="widget__title position__relative h3">Artist</h2>
                             <ul class="widget__tagcloud">
-                                <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.php">John Doe</a></li>
-                                <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="shop.php">Laura Doe</a></li>
+                                @foreach ($artists as $artist)
+                                    <li class="widget__tagcloud--list"><a class="widget__tagcloud--link" href="{{route('products.search.artist',[$artist->id])}}">{{$artist->name}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -105,7 +100,7 @@
                             </svg>
                             <span class="widget__filter--btn__text">Filter</span>
                         </button>
-                        <div class="product__view--mode d-flex align-items-center">
+                        {{-- <div class="product__view--mode d-flex align-items-center">
                             <div class="product__view--mode__list product__short--by align-items-center d-none d-lg-flex">
                                 <label class="product__view--label">Prev Page :</label>
                                 <div class="select shop__header--select">
@@ -163,7 +158,7 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         {{-- <p class="product__showing--count">Showing 1–9 of 21 results</p> --}}
                     </div>
                     <div class="shop__product--wrapper">

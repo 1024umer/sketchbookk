@@ -20,9 +20,9 @@
                                 <li class="header__menu--items mega__menu--items">
                                     <a class="header__menu--link" href="">Artist</a>
                                 </li>
-                                <li class="header__menu--items">
+                                {{-- <li class="header__menu--items">
                                     <a class="header__menu--link" href="{{route('blog')}}">Blog</a>
-                                </li>
+                                </li> --}}
                                 <li class="header__menu--items">
                                     <a class="header__menu--link" href="{{ route('contact') }}">Contact </a>
                                 </li>
@@ -77,7 +77,7 @@
                                 </a>
                             </li>
                             <li class="header__account--items">
-                                <a class="header__account--btn minicart__open--btn" href="javascript:void(0)">
+                                <a class="header__account--btn " href="{{route('cart')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18.897" height="21.565"
                                         viewBox="0 0 18.897 21.565">
                                         <path
@@ -429,7 +429,7 @@
                                         </label>
                                         <button type="button" class="quantity__value increase" aria-label="quantity value" value="Increase Value">+</button>
                                     </div>
-                                    <a href="" class="minicart__product--remove" aria-label="minicart remove btn">Remove</a>
+                                    <a href="/cart/remove/single/${product.id}" class="minicart__product--remove" aria-label="minicart remove btn">Remove</a>
                                 </div>
                             </div>
                         </div>

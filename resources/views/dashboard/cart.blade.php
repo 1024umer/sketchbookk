@@ -52,41 +52,42 @@
                                         </tr>
                                     </thead>
                                     <tbody class="cart__table--body">
-                                        @foreach ($products as $product)                                            
-                                        <tr class="cart__table--body__items">
-                                            <td class="cart__table--body__list">
-                                                <div class="cart__product d-flex align-items-center">
-                                                    <a href="{{ route('cart.remove.single', [$product->id]) }}" class="cart__remove--btn" aria-label="search button" type="button"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16px" height="16px">
-                                                            <path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z" />
-                                                        </svg></a>
-                                                    <div class="cart__thumbnail">
-                                                        <a href="product-details.php"><img class="border-radius-5" src="{{asset('storage/'.$product->imageOne->url)}}" alt="cart-product"></a>
+                                        @if (count($products) > 0)    
+                                            @foreach ($products as $product)                                            
+                                            <tr class="cart__table--body__items">
+                                                <td class="cart__table--body__list">
+                                                    <div class="cart__product d-flex align-items-center">
+                                                        <a href="{{ route('cart.remove.single', [$product['id']]) }}" class="cart__remove--btn" aria-label="search button" type="button"><svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16px" height="16px">
+                                                                <path d="M 4.7070312 3.2929688 L 3.2929688 4.7070312 L 10.585938 12 L 3.2929688 19.292969 L 4.7070312 20.707031 L 12 13.414062 L 19.292969 20.707031 L 20.707031 19.292969 L 13.414062 12 L 20.707031 4.7070312 L 19.292969 3.2929688 L 12 10.585938 L 4.7070312 3.2929688 z" />
+                                                            </svg></a>
+                                                        <div class="cart__thumbnail">
+                                                        </div>
+                                                        <div class="cart__content">
+                                                            <h4 class="cart__content--title"><a href="product-details.php">{{$product['title']}}</a></h4>
+                                                        </div>
                                                     </div>
-                                                    <div class="cart__content">
-                                                        <h4 class="cart__content--title"><a href="product-details.php">{{$product->title}}</a></h4>
+                                                </td>
+                                                <td class="cart__table--body__list">
+                                                    <span class="cart__price">${{$product['price']}}</span>
+                                                </td>
+                                                <td class="cart__table--body__list">
+                                                </td>
+                                                <td class="cart__table--body__list">
+                                                    <div class="quantity__box">
+                                                        <a type="button" href="{{route('cart.decrease.product',[$product['id']])}}" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</a>
+                                                        <label>
+                                                            <input type="number" class="quantity__number quickview__value--number" value="{{$product['qty']}}" />
+                                                        </label>
+                                                        <a type="button"  href="{{route('cart.increase.product',[$product['id']])}}" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" value="Increase Value">+</a>
                                                     </div>
-                                                </div>
-                                            </td>
-                                            <td class="cart__table--body__list">
-                                                <span class="cart__price">${{$product->price}}</span>
-                                            </td>
-                                            <td class="cart__table--body__list">
-                                                <span class="cart__price">{{$product->user->name}}</span>
-                                            </td>
-                                            <td class="cart__table--body__list">
-                                                <div class="quantity__box">
-                                                    <button type="button" class="quantity__value quickview__value--quantity decrease" aria-label="quantity value" value="Decrease Value">-</button>
-                                                    <label>
-                                                        <input type="number" class="quantity__number quickview__value--number" value="1" />
-                                                    </label>
-                                                    <button type="button" class="quantity__value quickview__value--quantity increase" aria-label="quantity value" value="Increase Value">+</button>
-                                                </div>
-                                            </td>
-                                            <td class="cart__table--body__list">
-                                                <span class="cart__price end">$</span>
-                                            </td>
-                                        </tr>
-                                        @endforeach
+                                                </td>
+                                                <td class="cart__table--body__list">
+                                                    <span class="cart__price end">${{$product['qty'] * $product['price']}}</span>
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                            
+                                        @endif
                                     </tbody>
                                 </table>
                                 <div class="continue__shopping d-flex justify-content-between">

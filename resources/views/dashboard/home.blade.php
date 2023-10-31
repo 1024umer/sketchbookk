@@ -13,8 +13,8 @@
                                         <div class="col">
                                             <div class="slider__content text-center">
                                                 <h2 class="slider__content--maintitle text-white h1">Urban Life</h2>
-                                                <p class="slider__content--desc text-white mb-35 d-sm-2-none">City on the
-                                                    Edge of Forever</p>
+                                                {{-- <p class="slider__content--desc text-white mb-35 d-sm-2-none">City on the
+                                                    Edge of Forever</p> --}}
                                                 <a class="slider__content--btn primary__btn" href="shop.php">Start to
                                                     Buying</a>
                                             </div>
@@ -32,8 +32,8 @@
                                         <div class="col">
                                             <div class="slider__content text-center">
                                                 <h2 class="slider__content--maintitle text-white h1">Urban Life</h2>
-                                                <p class="slider__content--desc text-white mb-35 d-sm-2-none">City on the
-                                                    Edge of Forever</p>
+                                                {{-- <p class="slider__content--desc text-white mb-35 d-sm-2-none">City on the
+                                                    Edge of Forever</p> --}}
                                                 <a class="slider__content--btn primary__btn" href="shop.php">Start to
                                                     Buying</a>
                                             </div>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="shipping__style2--content">
                             <h2 class="shipping__style2--content__title">Free Shipping Worldwide</h2>
-                            <p class="shipping__style2--content__desc">On order over $150</p>
+                            <p class="shipping__style2--content__desc">On order above $150</p>
                         </div>
                     </div>
                     <div class="shipping__style2--items d-flex align-items-center">
@@ -68,7 +68,7 @@
                             <img src="{{asset('front/img/icon/cash.svg')}}" alt="">
                         </div>
                         <div class="shipping__style2--content">
-                            <h2 class="shipping__style2--content__title">Cash On Delivery</h2>
+                            <h2 class="shipping__style2--content__title">Pay by Credit or Debit Card</h2>
                             <p class="shipping__style2--content__desc">100% money back guarantee</p>
                         </div>
                     </div>
@@ -902,8 +902,9 @@
                         alt="newsletter-banner">
                     <div class="newsletter__content style2 newsletter__subscribe">
                         <h5 class="newsletter__content--subtitle">Want to offer regularly ?</h5>
-                        <h2 class="newsletter__content--title h3 mb-25 text-center">Subscribe Our Newsletter <br>
-                            for Get Daily Update</h2>
+                        <h3 class="newsletter__content--title h3 mb-0 text-center">Subscribe Our Newsletter <br>
+                            for Get Daily Update</h3>
+                            <h5 class="newsletter__content--subtitle mb-3">Join our list and get 10% off on your first purchase. Dont worry we dont spam</h5>
                         <form class="newsletter__subscribe--form position__relative" action="#">
                             <label>
                                 <input class="newsletter__subscribe--input border-radius-20"
@@ -924,9 +925,26 @@
             </div>
         </section>
         <!-- End Newsletter banner section -->
-
+        <section class="container">
+            <div class="accordion mb-5" id="accordionExample">
+                @foreach ($faqs as $faq)    
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      {{$faq->title}}
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>{{$faq->question}}?</strong>{{$faq->answer}}
+                    </div>
+                  </div>
+                </div>
+                @endforeach
+              </div>
+        </section>
         <!-- Start blog section -->
-        <section class="blog__section section--padding color-scheme-2 pt-0">
+        {{-- <section class="blog__section section--padding color-scheme-2 pt-0">
             <div class="container">
                 <div class="section__heading text-center mb-30">
                     <h2 class="section__heading--maintitle">Latest Post From Blog</h2>
@@ -964,8 +982,6 @@
                                             </li>
                                         </ul>
                                         <h3 class="blog__content--title h4"><a href="javascript:void(0)">{{$blog->title}}</a></h3>
-                                        {{-- <p class="blog__content--desc">Mum ut perspiciatis unde omnis iste
-                                            natus error sit voluptatem…..</p> --}}
                                         <a class="blog__content--btn primary__btn" href="javascript:void(0)">Read more </a>
                                     </div>
                                 </div>
@@ -976,7 +992,7 @@
                     <div class="swiper__nav--btn swiper-button-prev"></div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- End blog section -->
     </main>
 @endsection

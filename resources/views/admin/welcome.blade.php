@@ -11,7 +11,7 @@
 
             {{-- page body start here --}}
 
-            <div class="container">
+            {{-- <div class="container">
                 <div class="row mt-5 ml-5">
                     <div class="col-md-4">
                         <div class="border shadow p-5 bg-white">
@@ -53,7 +53,7 @@
                         
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             {{-- page body end here --}}
         </div>

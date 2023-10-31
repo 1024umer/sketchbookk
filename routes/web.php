@@ -25,6 +25,8 @@ Route::get("/blog", [BlogController::class,"blog"])->name("blog");
 Route::get('/shop',[ShopController::class,'index'])->name('shop');
 Route::post('/shop/search',[SearchController::class,'search'])->name('products.search');
 Route::post('/shop/price',[SearchController::class,'searchByPrice'])->name('products.search.price');
+Route::get('/shop/category/{id}',[SearchController::class,'searchByCategory'])->name('products.search.category');
+Route::get('/shop/artist/{id}',[SearchController::class,'searchByArtist'])->name('products.search.artist');
 
 Route::get("/product/details/{id}", [ProductController::class,"productDetails"])->name("product.details");
 
@@ -34,6 +36,9 @@ Route::get('/cart/count',[CartController::class,'getCartCount'])->name('cart.cou
 Route::get('/cart/product',[CartController::class,'getCartProduct'])->name('cart.product');
 Route::get('/cart/remove/single/{id}',[CartController::class,'removeSingle'])->name('cart.remove.single');
 Route::get('/cart/clear',[CartController::class,'clearCart'])->name('cart.clear');
+Route::get('/cart/increase/product/{id}',[CartController::class,'increase'])->name('cart.increase.product');
+Route::get('/cart/decrease/product/{id}',[CartController::class,'decrease'])->name('cart.decrease.product');
+
 
 Route::get('/checkout',[CheckoutController::class,'index'])->name('checkout');
 Route::post('/checkout/post',[CheckoutController::class,'stripeCheckout'])->name('checkout.post');
