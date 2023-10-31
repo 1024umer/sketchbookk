@@ -234,29 +234,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="dropdown custom-dropdown notifications-menu">
-                            <a href="#" class=" nav-link" data-toggle="dropdown" aria-expanded="false">
-                                <i class="icon-notifications " style="color: white"></i>
-                                {{-- <span class="badge badge-danger badge-mini rounded-circle">4</span> --}}
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li class="header">You have
-                                    notifications</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                            <li>
-                                               
-                                                <a href="">
-                                                    <i class="icon icon-data_usage text-success"></i>
-                                                    </p>
-                                                </a>
-                                            </li>
-                                    </ul>
-                                </li>
-                                <li class="footer p-2 text-center"><a href="#"></a></li>
-                            </ul>
-                        </li>
+                       
                         {{-- <li>
                             <a class="nav-link " data-toggle="collapse" data-target="#navbarToggleExternalContent"
                                 aria-controls="navbarToggleExternalContent" aria-expanded="false"

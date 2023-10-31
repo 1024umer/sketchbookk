@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\{HomeController,AdminAuthController,CategoryController,UserController,BlogController,
-                                ArtistController,ContactController,ArtworkController};
+                                ArtistController,ContactController,ArtworkController,FaqController};
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
@@ -13,12 +13,20 @@ Route::get("/admin/logout", [AdminAuthController::class,"logout"])->name("admin.
 
 Route::middleware(['auth'])->prefix('dashboard')->name('admin.')->group(function () {
     Route::get('/backend',[HomeController::class,'index'])->name('home');
+
     Route::get('/category',[CategoryController::class,'index'])->name('category');
     Route::get('/category/add',[CategoryController::class,'add'])->name('category.add');
     Route::post('/category/store',[CategoryController::class,'store'])->name('category.store');
     Route::get('/category/edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
     Route::post('/category/update/{id}',[CategoryController::class,'update'])->name('category.update');
     Route::get('/category/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
+
+    Route::get('/faq',[FaqController::class,'index'])->name('faq');
+    Route::get('/faq/add',[FaqController::class,'add'])->name('faq.add');
+    Route::post('/faq/store',[FaqController::class,'store'])->name('faq.store');
+    Route::get('/faq/edit/{id}',[FaqController::class,'edit'])->name('faq.edit');
+    Route::post('/faq/update/{id}',[FaqController::class,'update'])->name('faq.update');
+    Route::get('/faq/delete/{id}',[FaqController::class,'delete'])->name('faq.delete');
 
     Route::get('/user',[UserController::class,'index'])->name('user');
     Route::get('/user/approve/{id}',[UserController::class,'approve'])->name('user.approve');

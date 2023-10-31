@@ -100,6 +100,33 @@
                     </li>
                 </ul>
             </li>
+            <li class="treeview">
+                 <a href="#">
+                     <span class="d-inline-block">
+                         <i class="icon icon-change_history s-18"></i>
+                     </span>
+                     Faqs Management
+                     <i class="icon icon-angle-left s-18 pull-right"></i>
+                 </a>
+                 <ul class="treeview-menu" style="display: none;">
+                     <li>
+                         <a href="{{route('admin.faq')}}">
+                             <span class="d-inline-block">
+                                 <i class="icon icon-list4"></i>
+                             </span>
+                             All Faqs
+                         </a>
+                     </li>
+                     <li>
+                         <a href="{{route('admin.faq.add')}}">
+                             <span class="d-inline-block">
+                                 <i class="icon icon-add"></i>
+                             </span>
+                             Add Faq
+                         </a>
+                     </li>
+                 </ul>
+             </li>
              {{-- <li class="treeview">
                  <a href="#">
                      <span class="d-inline-block">
@@ -173,7 +200,7 @@
                     </li>
                 </ul>
             </li>
-             <li class="treeview">
+             {{-- <li class="treeview">
                  <a href="#">
                      <span class="d-inline-block">
                          <i class="icon icon-gears s-18"></i>
@@ -191,7 +218,7 @@
                              </a>
                          </li>
                  </ul>
-             </li>
+             </li> --}}
          </ul>
          </ul>
      </section>
