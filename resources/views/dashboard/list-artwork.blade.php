@@ -61,7 +61,7 @@
                                             <td class="account__table--body__child--items">{{Str::limit($product->title,100)}}</td>
                                             <td class="account__table--body__child--items">{{$product->price}}</td>
                                             <td class="account__table--body__child--items">{{$product->quantity}}</td>
-                                            <td class="account__table--body__child--items {{$product->is_active == 1 ? 'green' : 'red'}}">{{$product->is_active == 1 ? 'Active' : 'Not Active'}}</td>
+                                            <td class="account__table--body__child--items {{$product->is_approved == 1 ? 'green' : 'red'}}">{{$product->is_active == 1 ? 'Active' : 'Not Active'}}</td>
                                             <td class="account__table--body__child--items {{$product->is_featured == 1 ? 'green' : 'red'}}">{{$product->is_featured == 1 ? 'YES' : 'NO'}}</td>
                                             <td class="account__table--body__child--items"><a href="{{route('user.artwork.edit',[$product->id])}}"><i class="fa-solid fa-pen-to-square"></i></a> | <a href="{{route('user.artwork.delete',[$product->id])}}"><i class="fa-solid fa-trash"></i></a></td>
                                         </tr>

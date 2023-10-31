@@ -25,40 +25,39 @@ class CartController extends Controller
             if (Auth::check()) {
                 if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2) {
                     return ['error' => 'You are not allowed to buy anything', 401];
-                }
-            } else {
-                $product = Product::where('id',$request->product_id)->with('imageOne')->first();
-    
-                if ($product) {
-                    $cart = Session::get('cart', []);
-                    if (!empty($cart)) {
-                        $firstProductUserId = reset($cart)['user_id']; // Get the user ID of the first product in the cart
-                        if ($product->user_id !== $firstProductUserId) {
-                            return ['error' => 'Please add products from the same vendor or clear your cart.'];
-                        }
-                    }
-                    $productId = $product->id;
-    
-                    if (array_key_exists($productId, $cart)) {
-                        $cart[$productId]['qty']++;
-                    } else {
-                        $cart[$productId] = [
-                            "id" => $product->id,
-                            "title" => $product->title,
-                            "user" => $product->user->name,
-                            "user_id"=>$product->user->id,
-                            "price" => $product->price,
-                            'image'=> $product->imageOne->url,
-                            "qty" => 1,
-                        ];
-                    }
-    
-                    session(['cart' => $cart]);
-                    return ['success' => 'Your Product has been added to the cart.'];
                 } else {
-                    return ['error' => 'Product not found', 404];
+                    $product = Product::where('id',$request->product_id)->with('imageOne')->first();
+                    if ($product) {
+                        $cart = session('cart', []);
+                        if (!empty($cart)) {
+                            $firstProductUserId = reset($cart)['user_id']; // Get the user ID of the first product in the cart
+                            if ($product->user_id !== $firstProductUserId) {
+                                return ['error' => 'Please add products from the same vendor or clear your cart.'];
+                            }
+                        }
+                        $productId = $product->id;
+        
+                        if (array_key_exists($productId, $cart)) {
+                            $cart[$productId]['qty']++;
+                        } else {
+                            $cart[$productId] = [
+                                "id" => $product->id,
+                                "title" => $product->title,
+                                "user" => $product->user->name,
+                                "user_id"=>$product->user->id,
+                                "price" => $product->price,
+                                'image'=> $product->imageOne->url,
+                                "qty" => 1,
+                            ];
+                        }
+        
+                        session(['cart' => $cart]);
+                        return ['success' => 'Your Product has been added to the cart.'];
+                    } else {
+                        return ['error' => 'Product not found', 404];
+                    }
                 }
-            }
+                }
         } catch (\Exception $e) {
             dd($e->getMessage());
             return ['error' => 'There is an error while adding the product to the cart.', 401];

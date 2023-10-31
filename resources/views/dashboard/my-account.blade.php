@@ -27,7 +27,7 @@
             <div class="my__account--section__inner border-radius-10 d-flex">
                 @include('dashboard.extends.sidebar')
                 <div class="account__wrapper">
-                    <div class="account__content">
+                    {{-- <div class="account__content">
                         <h3 class="account__content--title mb-20">Orders History</h3>
                         <div class="account__table--area">
                             <table class="account__table">
@@ -249,7 +249,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

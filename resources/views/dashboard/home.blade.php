@@ -83,8 +83,7 @@
                     </div>
                     <div class="shipping__style2--items d-flex align-items-center">
                         <div class="shipping__style2--icon">
-                            <img src="{{asset('front/img/icon/customer.svg')}}" alt="">
-                        </div>
+                            <i class="fa-regular fa-envelope" style="color: #ffffff;"></i>                        </div>
                         <div class="shipping__style2--content">
                             <h2 class="shipping__style2--content__title">24/7 Customer Service</h2>
 
