@@ -40,10 +40,14 @@ class CheckoutController extends Controller
         $productIds = session('cart', []);
         $products = Product::whereIn('id', $productIds)->with('imageOne', 'user')->get();
         $total = 0;
-        foreach ($products as $product) {
-            $total += $product->price;
-        }
 
+        foreach ($productIds as $productId => $productDetails) {
+            $product = Product::find($productId);
+    
+            if ($product) {
+                $total += $product->price * $productDetails['qty'];
+            }
+        }
         $checkoutSession = $stripe->checkout->sessions->create([
             'success_url' => route('payment.success'),
             'cancel_url' => route('payment.fail'),
@@ -53,7 +57,7 @@ class CheckoutController extends Controller
                 [
                     'price_data' => [
                         'currency' => 'USD',
-                        'unit_amount' => ($total) * 100, 
+                        'unit_amount' => $total * 100, 
                         'product_data' => [
                             'name' => 'Your Product Name', 
                             'description' => 'Your Product Description', 

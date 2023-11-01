@@ -90,9 +90,9 @@
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-8">
-                    @if (session('success'))
+                    @if (session('complete'))
                         <div class="alert alert-success alert-dismissible fade show" id="success_alert_home"role="alert">
-                            {{ session('success') }}
+                            {{ session('complete') }}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
