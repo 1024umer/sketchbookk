@@ -13,7 +13,7 @@ class ProductController extends Controller
         $this->file = $file;
     }
     public function index(){
-        $products = Product::where([['is_approved',1],['user_id',auth()->user()->id]])->with('image')->get();
+        $products = Product::where('user_id',auth()->user()->id)->with('image')->get();
         return view('dashboard.list-artwork')->with('title','Artwork')->with(compact('products'));
     }
     public function add(){
