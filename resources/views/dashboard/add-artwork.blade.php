@@ -121,13 +121,13 @@
                                                 </div>
                                             </div>
                                             <div class="account__login--remember position__relative mb-15">
-                                                <input class="checkout__checkbox--input" id="check2" name="is_active" {{ (isset($product->is_active) && $product->is_active == 1) ? 'checked' : '' }} type="checkbox">
+                                                <input class="checkout__checkbox--input"  name="is_active" {{ (isset($product->is_active) && $product->is_active == 1) ? 'checked' : '' }} type="checkbox">
                                                 <span class="checkout__checkbox--checkmark"></span>
                                                 <label class="checkout__checkbox--label login__remember--label" for="check2">
                                                     Do you want to make this artwork visible from now?</label>
                                             </div>
                                             <div class="account__login--remember position__relative mb-15">
-                                                <input class="checkout__checkbox--input" id="check2" name="is_featured" {{ (isset($product->is_featured) && $product->is_featured == 1) ? 'checked' : '' }} type="checkbox">
+                                                <input class="checkout__checkbox--input" name="is_featured" {{ (isset($product->is_featured) && $product->is_featured == 1) ? 'checked' : '' }} type="checkbox">
                                                 <span class="checkout__checkbox--checkmark"></span>
                                                 <label class="checkout__checkbox--label login__remember--label" for="check2">
                                                     Do you want to show this Artwork on Home Page?</label>

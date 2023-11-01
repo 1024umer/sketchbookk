@@ -10,6 +10,7 @@
                                 <path d="M15.138,8.59l-3.961,3.952L7.217,8.59,6,9.807l5.178,5.178,5.178-5.178Z" transform="translate(-6 -8.59)" fill="currentColor"></path>
                             </svg>
                         </h2>
+                        
                         <div class="footer__widget--inner">
                             <a class="footer__logo" href="index.php"><img src="{{asset('front/img/logo/logo-clr.svg')}}" alt="footer-logo"></a>
                             <p class="footer__widget--desc">Ut enim ad minim veniam, quis <br> nostrud exercitation ullamco laboris <br> nisi ut aliquip ex ea commodo.</p>
@@ -61,7 +62,7 @@
                         </h2>
                         <ul class="footer__widget--menu footer__widget--inner">
                             <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="{{route('about')}}">About Us</a></li>
-                            {{-- <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="{{route('user.wishlist')}}">Wishlist</a></li> --}}
+                            <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="{{route('faq.home')}}">FAQ</a></li>
                             <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="{{route('contact')}}">Contact Us</a></li>
                             <li class="footer__widget--menu__list"><a class="footer__widget--menu__text" href="privacy-policy.php">Privacy Policy</a></li>
                         </ul>

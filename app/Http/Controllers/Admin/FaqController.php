@@ -8,6 +8,10 @@ use App\Models\Faq;
 use Illuminate\Http\Request;
 class FaqController extends Controller
 {
+    public function home(){
+        $faqs = Faq::get();
+        return view('dashboard.faq')->with(compact('faqs'));
+    }
     public function index(){
         $faqs = Faq::orderBy('created_at','desc')->get();
         return view('admin.faq.view')->with(compact('faqs'));

@@ -216,8 +216,8 @@
                                 @enderror
                             </div>
                             <div class="checkout__content--step__footer d-flex align-items-center">
-                                <a class="continue__shipping--btn primary__btn border-radius-5" href="index.php">Continue To Shipping</a>
-                                <a class="previous__link--content" href="cart.php">Return to cart</a>
+                                {{-- <a class="continue__shipping--btn primary__btn border-radius-5" href="index.php">Continue To Shipping</a> --}}
+                                <a class="previous__link--content" href="{{route('cart')}}">Return to cart</a>
                             </div>
                     </div>
                 </div>

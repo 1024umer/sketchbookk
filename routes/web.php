@@ -3,6 +3,8 @@
 use App\Http\Controllers\Auth\{LoginController,RegisterController,ForgetPasswordController};
 use App\Http\Controllers\{HomeController,BlogController,DashboardController,ContactController,ProfileController,
     ProductController,ShopController,WishlistController,SearchController,CartController,CheckoutController,OrderController};
+use App\Http\Controllers\Admin\FaqController;
+
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,7 @@ Route::get('/shop/artist/{id}',[SearchController::class,'searchByArtist'])->name
 
 Route::get("/product/details/{id}", [ProductController::class,"productDetails"])->name("product.details");
 
+Route::get('/faqs',[FaqController::class,'home'])->name('faq.home');
 Route::get('/cart',[CartController::class,'index'])->name('cart');
 Route::post('/cart/add',[CartController::class,'add'])->name('cart.add');
 Route::get('/cart/count',[CartController::class,'getCartCount'])->name('cart.count');

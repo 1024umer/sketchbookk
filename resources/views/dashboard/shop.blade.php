@@ -90,6 +90,18 @@
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-8">
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" id="success_alert_home"role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-error alert-dismissible fade show" id="success_alert_home"role="alert">
+                            {{ session('error') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
                     <div class="shop__header bg__gray--color d-flex align-items-center justify-content-between mb-30">
                         <button class="widget__filter--btn d-none d-md-2-flex align-items-center">
                             <svg class="widget__filter--btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -170,7 +182,7 @@
                                             <div class="col mb-30">
                                                 <div class="product__items ">
                                                     <div class="product__items--thumbnail">
-                                                        <a class="product__items--link" href="product-details.php">
+                                                        <a class="product__items--link" href="{{route('product.details',[$product->id])}}">
                                                             <img class="product__items--img product__primary--img" src="{{asset('storage/'. $product->imageOne->url)}}" alt="product-img">
                                                         </a>
                                                         <ul class="product__items--action d-flex justify-content-center">
