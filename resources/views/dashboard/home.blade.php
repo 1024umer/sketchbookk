@@ -113,7 +113,7 @@
                                             <div class="product__items--thumbnail">
                                                 <a class="product__items--link" href="{{route('shop')}}">
                                                     <img class="product__items--img product__primary--img"
-                                                        src="{{$artist->image_url}}" alt="product-img">
+                                                        src="{{asset('storage/'.$artist->image->url)}}" alt="product-img">
                                                 </a>
                                             </div>
                                             <div class="product__items--content text-center">
