@@ -265,8 +265,8 @@
                 })
             }else{
                 Swal.fire({
-                    icon:'warning',
-                    title:'Success',
+                    icon:'error',
+                    title:'Warning',
                     text: data.error
                 })
             }
