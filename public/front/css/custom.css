@@ -11,7 +11,10 @@ td.account__table--body__child--items.green {
   color: #000000;
   font-weight: 500;
 }
-
+img.product__items--img.product__primary--img {
+  width: 100%;
+  height: 160px;
+}
 section.shipping__section {
   background: url(../img/banner/iconbox-banner.jpg);
   background-repeat: no-repeat;
