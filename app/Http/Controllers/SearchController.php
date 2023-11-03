@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class SearchController extends Controller
 {
     public function search(Request $request){
-        $artists = User::where('role_id',2)->get(); 
+        $artists = User::where('role_id',2)->latest()->take(3)->get(); 
         $categories = Category::where('is_active',1)->get();
         $products = Product::where('is_approved', 1)
             ->where(function ($query) use ($request) {
@@ -24,7 +24,7 @@ class SearchController extends Controller
             return view('dashboard.shop')->with('title','Shop')->with(compact('products','artists','categories'));
     }
     public function searchByPrice(Request $request){
-        $artists = User::where('role_id',2)->get(); 
+        $artists = User::where('role_id',2)->latest()->take(3)->get(); 
         $categories = Category::where('is_active',1)->get();
         $products = Product::where('is_approved', 1)
         ->whereRaw('price >= ?', [$request->from])
@@ -46,14 +46,14 @@ class SearchController extends Controller
             return in_array($categoryId, $categoryIds);
         });
         $products = $products->toQuery()->paginate(8);
-        $artists = User::where('role_id',2)->get(); 
+        $artists = User::where('role_id',2)->latest()->take(3)->get(); 
         $categories = Category::where('is_active',1)->get();
         return view('dashboard.shop')->with('title','Shop')->with(compact('products','artists','categories'));
 
     }
     
     public function searchByArtist(Request $request, $id){
-        $artists = User::where('role_id',2)->get(); 
+        $artists = User::where('role_id',2)->latest()->take(3)->get(); 
         $categories = Category::where('is_active',1)->get();
         $products = Product::where('user_id',$id)->where('is_approved',1)->orderBy('id', 'desc')
         ->with('imageOne')
