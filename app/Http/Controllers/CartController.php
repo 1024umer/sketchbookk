@@ -30,7 +30,7 @@ class CartController extends Controller
                     if ($product) {
                         $cart = session('cart', []);
                         if (!empty($cart)) {
-                            $firstProductUserId = reset($cart)['user_id']; // Get the user ID of the first product in the cart
+                            $firstProductUserId = reset($cart)['user_id']; 
                             if ($product->user_id !== $firstProductUserId) {
                                 return ['error' => 'Please add products from the same vendor or clear your cart.'];
                             }
@@ -62,7 +62,7 @@ class CartController extends Controller
                     if ($product) {
                         $cart = session('cart', []);
                         if (!empty($cart)) {
-                            $firstProductUserId = reset($cart)['user_id']; // Get the user ID of the first product in the cart
+                            $firstProductUserId = reset($cart)['user_id']; 
                             if ($product->user_id !== $firstProductUserId) {
                                 return ['error' => 'Please add products from the same vendor or clear your cart.'];
                             }

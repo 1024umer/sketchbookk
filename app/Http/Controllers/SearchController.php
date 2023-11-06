@@ -36,7 +36,7 @@ class SearchController extends Controller
         
     }
     public function searchByCategory(Request $request, $id) {
-        $categoryId = (int)$id; // Convert the provided ID to an integer
+        $categoryId = (int)$id; 
         $allProducts = Product::where('is_approved', 1)
             ->orderBy('id', 'desc')
             ->with('imageOne')
