@@ -12,7 +12,7 @@
                                     <a class="header__menu--link" href="{{ route('about') }}">About</a>
                                 </li>
                                 <li class="header__menu--items">
-                                    <a class="header__menu--link" href="sketchbook.php">Sketchbook</a>
+                                    <a class="header__menu--link" href="{{route('sketchbook')}}">Sketchbook</a>
                                 </li>
                                 <li class="header__menu--items mega__menu--items">
                                     <a class="header__menu--link" href="{{ route('shop') }}">Shop</a>

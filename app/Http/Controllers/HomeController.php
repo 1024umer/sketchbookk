@@ -18,5 +18,7 @@ class HomeController extends Controller
     public function about(){
         return view("dashboard.about")->with('title','About Us');
     }
-    
+    public function sketchbook(){
+        return view("dashboard.sketchbook")->with('title','Sketchbooks');
+    }
 }

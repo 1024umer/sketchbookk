@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [HomeController::class,"index"])->name("dashboard");
 Route::get("/about", [HomeController::class,"about"])->name("about");
+Route::get("/sketchbook", [HomeController::class,"sketchbook"])->name("sketchbook");
 
 Route::get("/contact", [ContactController::class,"contact"])->name("contact");
 Route::post('/contact/store',[ContactController::class,'store'])->name('contact.store');
