@@ -48,7 +48,7 @@ class User extends Authenticatable
     }
     public function getImageUrlAttribute(){
         if($this->image){
-            return asset($this->image->url);
+            return asset('storage/'.$this->image->url);
         }else{
             return 'https://randomuser.me/api/portraits/men/85.jpg';
         }
