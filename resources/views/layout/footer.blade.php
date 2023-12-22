@@ -13,7 +13,7 @@
                         
                         <div class="footer__widget--inner">
                             <a class="footer__logo" href="index.php"><img src="{{asset('front/img/logo/logo-clr.svg')}}" alt="footer-logo"></a>
-                            <p class="footer__widget--desc">Ut enim ad minim veniam, quis <br> nostrud exercitation ullamco laboris <br> nisi ut aliquip ex ea commodo.</p>
+                            <p class="footer__widget--desc"></p>
                             <div class="footer__social">
                                 <ul class="social__shear d-flex">
                                     <li class="social__shear--list">

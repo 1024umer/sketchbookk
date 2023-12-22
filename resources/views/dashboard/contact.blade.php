@@ -47,8 +47,8 @@
                                         </div>
                                         <div class="contact__info--content">
                                             <p class="contact__info--content__desc text-white">Change the design through a
-                                                range <br> <a href="tel:+01234-567890">+01234-567890</a> <a
-                                                    href="tel:++01234-5688765">+01234-5688765</a> </p>
+                                                range <br> <a href="tel:+817 480 2424">+817 480 2424</a> <a
+                                                    href="tel:+972 653 0694">+972 653 0694</a> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -65,8 +65,8 @@
                                         </div>
                                         <div class="contact__info--content">
                                             <p class="contact__info--content__desc text-white"> <a
-                                                    href="mailto:info@example.com">info@example.com</a> <br> <a
-                                                    href="mailto:info@example.com">info@example.com</a></p>
+                                                    href="mailto:kwhiteblog@icloud.com">kwhiteblog@icloud.com</a> <br> <a
+                                                    href="mailto:rvandiver@me.com">rvandiver@me.com</a></p>
                                         </div>
                                     </div>
                                 </div>
